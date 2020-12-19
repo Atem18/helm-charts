@@ -1,0 +1,78 @@
+name: Lint and Test Charts
+
+on:
+  pull_request:
+    paths:
+      - 'charts/**'
+
+jobs:
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Run helm-docs
+        run: .github/helm-docs.sh
+
+  lint-test:
+    runs-on: ubuntu-latest
+    needs:
+      - lint-docs
+    strategy:
+      matrix:
+        k8s:
+          - v1.17.11
+          - v1.18.8
+          - v1.19.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.0.1
+
+      - name: Run chart-testing (lint)
+        run: ct lint --all --config .github/ct.yaml
+
+      - name: Create kind ${{ matrix.k8s }} cluster
+        uses: helm/kind-action@v1.1.0
+        with:
+          node_image: kindest/node:${{ matrix.k8s }}
+
+      - name: Run chart-testing (install)
+        run: ct install --chart-dirs atemlire,nautilus-api --config .github/ct.yaml
+
+  kubeval-chart:
+    runs-on: ubuntu-latest
+    needs:
+      - lint-docs
+      - lint-test
+    strategy:
+      matrix:
+        k8s:
+          - v1.17.11
+          - v1.18.8
+          - v1.19.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+      - name: Run kubeval
+        env:
+          KUBERNETES_VERSION: ${{ matrix.k8s }}
+          HCLOUD_API_TOKEN: ${{ secrets.HCLOUD_API_TOKEN }}
+        run: .github/kubeval.sh
