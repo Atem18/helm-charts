@@ -1,0 +1,3 @@
+Verify that hcloud-csi-driver is installed with:
+
+kubectl get csidriver
