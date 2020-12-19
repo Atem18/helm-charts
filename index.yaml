@@ -1,0 +1,51 @@
+apiVersion: v1
+entries:
+  atemlire:
+  - apiVersion: v2
+    appVersion: 2.2.1-r0
+    created: "2020-12-19T03:10:10.571134+01:00"
+    description: Atemlire
+    digest: 068694284b51c7f95abc73aa9e689ae1760efd985eb1e55110b62e91e70a8a9b
+    maintainers:
+    - name: Atem18
+    name: atemlire
+    sources:
+    - https://github.com/Atem18/atemlire
+    - https://github.com/Atem18/helm-charts
+    type: application
+    urls:
+    - https://github.com/Atem18/helm-charts/releases/download/atemlire-2.2.1/atemlire-2.2.1.tgz
+    version: 2.2.1
+  hcloud-csi-driver:
+  - apiVersion: v2
+    appVersion: 1.5.1
+    created: "2020-12-19T03:10:10.737087+01:00"
+    description: hcloud-csi-driver
+    digest: 9fc4de933f96b093477e1077aa19b50a11c3e56cb149317df71147cba026232a
+    maintainers:
+    - name: Atem18
+    name: hcloud-csi-driver
+    sources:
+    - https://github.com/hetznercloud/csi-driver
+    - https://github.com/Atem18/helm-charts
+    type: application
+    urls:
+    - https://github.com/Atem18/helm-charts/releases/download/hcloud-csi-driver-1.5.1/hcloud-csi-driver-1.5.1.tgz
+    version: 1.5.1
+  nautilus-api:
+  - apiVersion: v2
+    appVersion: 0.1.5
+    created: "2020-12-19T03:10:10.907997+01:00"
+    description: Nautilus API
+    digest: 58515533f6cd845dca333a3b54450d37d9c22300ab7ef565e0a216ef89dc9b98
+    maintainers:
+    - name: Atem18
+    name: nautilus-api
+    sources:
+    - https://github.com/Atem18/nautilus
+    - https://github.com/Atem18/helm-charts
+    type: application
+    urls:
+    - https://github.com/Atem18/helm-charts/releases/download/nautilus-api-0.1.5/nautilus-api-0.1.5.tgz
+    version: 0.1.5
+generated: "2020-12-19T03:10:10.309767+01:00"
