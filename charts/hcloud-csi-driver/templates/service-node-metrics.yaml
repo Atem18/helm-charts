@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hcloud-csi-driver.fullname" . }}-node-metrics
+  labels:
+    {{- include "hcloud-csi-driver.labels" . | nindent 4 }}
+    app: {{ include "hcloud-csi-driver.fullname" . }}-node
+spec:
+  selector:
+    {{- include "hcloud-csi-driver.selectorLabels" . | nindent 4 }}
+    app: {{ include "hcloud-csi-driver.fullname" . }}-node
+  ports:
+    - port: 9189
+      name: metrics
+      targetPort: metrics

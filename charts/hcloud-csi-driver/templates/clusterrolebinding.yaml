@@ -1,0 +1,15 @@
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "hcloud-csi-driver.fullname" . }}
+  labels:
+    {{- include "hcloud-csi-driver.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "hcloud-csi-driver.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "hcloud-csi-driver.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
