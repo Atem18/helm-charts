@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   atemlire:
   - apiVersion: v2
+    appVersion: 2.3.0-r1
+    created: "2021-01-15T00:12:37.9814+01:00"
+    description: Atemlire
+    digest: 446e533a9d762d5be2ec0924974c94da208bb48f84e0417859c19c851ee6697f
+    maintainers:
+    - name: Atem18
+    name: atemlire
+    sources:
+    - https://github.com/Atem18/atemlire
+    - https://github.com/Atem18/helm-charts
+    type: application
+    urls:
+    - https://github.com/Atem18/helm-charts/releases/download/atemlire-3.0.1/atemlire-3.0.1.tgz
+    version: 3.0.1
+  - apiVersion: v2
     appVersion: 2.3.0
     created: "2021-01-15T00:08:12.662517+01:00"
     description: Atemlire
