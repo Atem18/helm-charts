@@ -37,17 +37,17 @@ spec:
             - name: NODE_ENV
               value: {{ .Values.nodeEnv | quote }}
           ports:
-            - name: http
-              containerPort: 80
+            - name: https
+              containerPort: 443
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /live
-              port: http
+              port: https
           readinessProbe:
             httpGet:
               path: /ready
-              port: http
+              port: https
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
