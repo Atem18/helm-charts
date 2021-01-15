@@ -76,6 +76,21 @@ entries:
     urls:
     - https://github.com/Atem18/helm-charts/releases/download/atemlire-2.2.1/atemlire-2.2.1.tgz
     version: 2.2.1
+  - apiVersion: v2
+    appVersion: 2.3.0.0
+    created: "2021-01-15T07:21:31.003269794Z"
+    description: Atemlire
+    digest: 91643e25c82e96e91a84f3c690920f5502419657cba8056f2bcc7af9c6e4573d
+    maintainers:
+    - name: Atem18
+    name: atemlire
+    sources:
+    - https://github.com/Atem18/atemlire
+    - https://github.com/Atem18/helm-charts
+    type: application
+    urls:
+    - https://github.com/Atem18/helm-charts/releases/download/atemlire-2.3.0.0/atemlire-2.3.0.0.tgz
+    version: 2.3.0.0
   hcloud-csi-driver:
   - apiVersion: v2
     appVersion: 1.5.1
